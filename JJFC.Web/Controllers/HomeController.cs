@@ -18,6 +18,14 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet("{id}")]
+    public IActionResult PositionDetails(string id)
+    {
+        var vm = new PositionDetailsViewModel();
+        vm.Description = "This is the positon's description.";
+        return View(vm);
+    }
+    
     public IActionResult Privacy()
     {
         return View();

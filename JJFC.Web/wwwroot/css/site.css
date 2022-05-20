@@ -1,18 +1,29 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+  display: block;
+  background-color: #e9e2da !important;
+  line-height: 1.4;
+  font-size: 18px;
+  color: #444;
+  padding: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.card {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card-img-top{
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.btn.btn-primary {
+  background: #5544c5;
+  border-color: white;
 }
