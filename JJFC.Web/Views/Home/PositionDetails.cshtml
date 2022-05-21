@@ -1,3 +1,50 @@
-﻿@model PositionDetailsViewModel
+﻿@model JJFC.Web.Models.Database.Position
 
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<style>
+    body {
+    margin: auto;
+    width: 75%;
+    padding: 5px;
+    text-align: center;
+    }
+    
+    ul {
+        list-style-type: none;
+    }
+    
+</style>
+<h2>@Model.Name</h2>
+<iframe width="420" height="315"
+        src="https://www.youtube.com/embed/@Model.YoutubeVideoId?controls=0">
+</iframe>
+<br/>
+<br/>
 <p>@Model.Description</p>
+<br/>
+<h4>Pro's List:</h4>
+<ul>
+    @foreach (var pro in Model.ProsList)
+    {
+        <li>@pro</li>
+    }
+</ul>
+<br/>
+<h3>Con's List:</h3>
+<ul>
+    @foreach (var con in Model.ConsList)
+    {
+        <li>@con</li>
+    }
+</ul>
+<br/>
+<h3>Possible Attacks:</h3>
+<ul>
+    @foreach (var attack in Model.PossibleAttacks)
+    {
+        <li>@attack</li>
+    }
+</ul>

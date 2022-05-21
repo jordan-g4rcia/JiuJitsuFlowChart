@@ -1,29 +1,35 @@
 ﻿using System.Diagnostics;
+using System.Runtime.Intrinsics.X86;
 using Microsoft.AspNetCore.Mvc;
 using JJFC.Web.Models;
+using JJFC.Web.Repositories;
 
 namespace JJFC.Web.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly PositionRepository _positionRepository;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(PositionRepository positionRepository)
     {
-        _logger = logger;
+        _positionRepository = positionRepository;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var positions = await _positionRepository.GetAll();
+        return View(positions);
     }
 
     [HttpGet("{id}")]
-    public IActionResult PositionDetails(string id)
+    public async Task<IActionResult> PositionDetails(string id)
     {
-        var vm = new PositionDetailsViewModel();
-        vm.Description = "This is the positon's description.";
-        return View(vm);
+        var position = await _positionRepository.GetById(id);
+        if (position == null)
+        {
+            return RedirectToAction("Index");
+        }
+        return View(position);
     }
     
     public IActionResult Privacy()

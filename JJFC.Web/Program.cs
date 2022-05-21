@@ -1,7 +1,15 @@
+using JJFC.Web.Repositories;
+using MongoDB.Driver;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<PositionRepository>();
+
+var mongoDbConnectionString = builder.Configuration["ConnectionStrings:Mongo"];
+builder.Services.AddScoped<IMongoClient, MongoClient>(_ => new MongoClient(MongoClientSettings.FromConnectionString(mongoDbConnectionString)));
 
 var app = builder.Build();
 

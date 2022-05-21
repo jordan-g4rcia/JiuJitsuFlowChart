@@ -6,6 +6,7 @@ body {
   color: #444;
   padding: 10px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-bottom: 60px;
 }
 
 .card {
@@ -26,4 +27,8 @@ body {
 .btn.btn-primary {
   background: #5544c5;
   border-color: white;
+}
+
+.footer {
+  position: static !important;
 }
