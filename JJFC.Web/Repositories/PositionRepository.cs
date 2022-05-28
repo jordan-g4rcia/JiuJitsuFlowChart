@@ -28,6 +28,15 @@ public class PositionRepository
         return profile;
     }
     
+    public async Task<Position> Create(Position data)
+    {
+        data.CreatedAt = DateTime.UtcNow;
+        data.UpdatedAt = DateTime.UtcNow;
+        await GetCollection().InsertOneAsync(data);
+        var positionList = await GetCollection().AsQueryable().ToListAsync();
+        return positionList.FirstOrDefault(x => x.Id == data.Id);
+    }
+    
     private IMongoCollection<Position> GetCollection()
     {
         IMongoDatabase database = _mongoClient.GetDatabase("jjfc");

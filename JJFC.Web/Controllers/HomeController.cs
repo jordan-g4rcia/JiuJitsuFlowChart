@@ -2,6 +2,7 @@
 using System.Runtime.Intrinsics.X86;
 using Microsoft.AspNetCore.Mvc;
 using JJFC.Web.Models;
+using JJFC.Web.Models.Database;
 using JJFC.Web.Repositories;
 
 namespace JJFC.Web.Controllers;
@@ -30,6 +31,19 @@ public class HomeController : Controller
             return RedirectToAction("Index");
         }
         return View(position);
+    }
+    
+    [HttpGet("Add")]
+    public async Task<IActionResult> AddPosition()
+    {
+        return View(new Position());
+    }
+    
+    [HttpPost("Add")]
+    public async Task<IActionResult> AddPositionPost(Position position)
+    {
+        await _positionRepository.Create(position);
+        return RedirectToAction("Index");
     }
     
     public IActionResult Privacy()
