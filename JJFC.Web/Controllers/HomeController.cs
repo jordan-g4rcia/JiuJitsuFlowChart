@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Net.Mime;
 using System.Runtime.Intrinsics.X86;
 using Microsoft.AspNetCore.Mvc;
 using JJFC.Web.Models;
@@ -19,6 +20,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         var positions = await _positionRepository.GetAll();
+        positions = positions.Where(x => x.IsVisible ?? true).ToList();
         return View(positions);
     }
 
@@ -43,6 +45,22 @@ public class HomeController : Controller
     public async Task<IActionResult> AddPositionPost(Position position)
     {
         await _positionRepository.Create(position);
+        return RedirectToAction("Index");
+    }
+    
+    [HttpGet("UpdateVisible")]
+    public async Task<IActionResult> UpdateVisible(string id)
+    {
+        var position = await _positionRepository.GetById(id);
+        position.IsVisible = false;
+        await _positionRepository.Update(id, position);
+        return RedirectToAction("Index");
+    }
+    
+    [HttpGet("delete/{id}")]
+    public async Task<IActionResult> Delete(string id)
+    {
+        await _positionRepository.Delete(id);
         return RedirectToAction("Index");
     }
     

@@ -37,10 +37,25 @@ public class PositionRepository
         return positionList.FirstOrDefault(x => x.Id == data.Id);
     }
     
+    public async Task<Position> Update(string id, Position data)
+    {
+        data.UpdatedAt = DateTime.UtcNow;
+        data.Version++;
+        await GetCollection().UpdateOneAsync<Position>(x => x.Id == id,
+            Builders<Position>.Update.Set(x => x.IsVisible, data.IsVisible));
+        
+        return await GetCollection().AsQueryable().FirstOrDefaultAsync(u => u.Id == id);
+    }
+    
     private IMongoCollection<Position> GetCollection()
     {
         IMongoDatabase database = _mongoClient.GetDatabase("jjfc");
         IMongoCollection<Position> collection = database.GetCollection<Position>("positions");
         return collection;
+    }
+
+    public async Task Delete(string id)
+    {
+        throw new NotImplementedException();
     }
 }

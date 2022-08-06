@@ -24,4 +24,5 @@ public class Position
     public List<string> PossibleAttacks { get; set; } = new();
     public List<string> PossibleEscapes { get; set; } = new();
     public List<string> Transitions { get; set; } = new();
+    public bool? IsVisible { get; set; }
 }

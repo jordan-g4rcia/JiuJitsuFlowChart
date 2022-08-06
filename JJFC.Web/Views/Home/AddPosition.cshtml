@@ -8,21 +8,24 @@
     <h1>Add Position</h1>
     <div class="row">
 
-        <form method="post">
+        <form id="form" method="post">
             
             <div class="form-group">
                 <label asp-for="@Model.Id">Position ID</label>
-                <input type="text" asp-for="@Model.Id" class="form-control" placeholder="Enter Position ID Here..." required/>
+                <input type="text" asp-for="@Model.Id" class="form-control" placeholder="example-position" required/>
+                
                 <label asp-for="@Model.Name">Name</label>
-                <input type="text" asp-for="@Model.Name" class="form-control" placeholder="Enter Position Name Here..."/>
+                <input type="text" asp-for="@Model.Name" class="form-control" placeholder="Example Position Name"/>
+                
                 <label asp-for="@Model.ImageUrl">Image URL</label>
                 <input type="text" asp-for="@Model.ImageUrl" class="form-control" placeholder="Enter Image Link Here..."/>
+                
                 <label asp-for="@Model.YoutubeVideoId">Youtube Link</label>
                 <input type="text" asp-for="@Model.YoutubeVideoId" class="form-control" placeholder="Enter Youtube Video ID Here..."/>
+                
                 <label asp-for="@Model.Description">Description</label>
                 <textarea type="text" asp-for="@Model.Description" class="form-control" placeholder="Enter Description Here...">@Model.Description</textarea>
-                <br/>
-                <input type="submit" class="btn btn-primary"/>
+
             </div>
 
         </form>

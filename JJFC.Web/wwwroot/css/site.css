@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  /*background: rgb(0 100 0 / 0.1) !important;*/
+}
+
 body {
   display: block;
   background-color: #e9e2da !important;

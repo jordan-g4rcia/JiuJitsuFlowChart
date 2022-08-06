@@ -10,10 +10,11 @@
         @foreach (var position in Model)
         {
             <div class="col-4">
-                <div class="card position-card" data-src="@position.Id">
+                <div id="position-card" class="card position-card" data-src="@position.Id">
                     <img class="card-img-top" src="@position.ImageUrl" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@position.Name</h5>
+                        <button type="button" class="btn btn-danger"><a asp-area="" asp-controller="Home" asp-action="UpdateVisible" asp-route-id="@position.Id">Remove</a></button>
                     </div>
                 </div>
             </div>
