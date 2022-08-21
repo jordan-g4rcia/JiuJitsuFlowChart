@@ -41,18 +41,30 @@ public class HomeController : Controller
         return View(new Position());
     }
     
-    [HttpPost("Add")]
-    public async Task<IActionResult> AddPositionPost(Position position)
+    //Search positions
+    public IActionResult Search(string query)
     {
-        await _positionRepository.Create(position);
-        return RedirectToAction("Index");
+        return string.IsNullOrWhiteSpace(query)
+            ? RedirectToAction("Index")
+            : RedirectToAction("SearchResults", new { query = query });
     }
     
+    [HttpGet("Search")]
+    public async Task<IActionResult> SearchResults([FromQuery] string query)
+    {
+        var vm = new SearchViewModel
+        {
+            Positions = await _positionRepository.Search(query)
+        };
+
+        return View(vm);
+    }
+
     [HttpGet("UpdateVisible")]
     public async Task<IActionResult> UpdateVisible(string id)
     {
         var position = await _positionRepository.GetById(id);
-        position.IsVisible = false;
+        position.IsVisible = !position.IsVisible;
         await _positionRepository.Update(id, position);
         return RedirectToAction("Index");
     }
@@ -61,6 +73,13 @@ public class HomeController : Controller
     public async Task<IActionResult> Delete(string id)
     {
         await _positionRepository.Delete(id);
+        return RedirectToAction("Index");
+    }
+    
+    [HttpPost("Add")]
+    public async Task<IActionResult> AddPositionPost(Position position)
+    {
+        await _positionRepository.Create(position);
         return RedirectToAction("Index");
     }
     

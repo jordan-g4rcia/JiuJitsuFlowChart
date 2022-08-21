@@ -1,0 +1,33 @@
+﻿@model SearchViewModel
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<div class="container">
+    <h1>Search Results</h1>
+    <div class="row">
+        
+        @if (Model.Positions != null && Model.Positions.Any())
+        {
+            foreach (var position in Model.Positions)
+            {
+                <div class="col-4">
+                    <div id="position-card" class="card position-card" data-src="@position.Id">
+                        <img class="card-img-top" src="@position.ImageUrl" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@position.Name</h5>
+                            <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="UpdateVisible" asp-route-id="@position.Id">
+                                @(position.IsVisible ?? true ? "Remove from Flow" : "Add to Flow")
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h4>No Results Found...</h4>
+        }
+
+    </div>
+</div>

@@ -17,6 +17,7 @@ body {
 .card {
   width: 100%;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .card-img-top{

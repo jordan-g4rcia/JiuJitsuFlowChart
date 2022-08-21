@@ -58,4 +58,13 @@ public class PositionRepository
     {
         throw new NotImplementedException();
     }
+
+    public async Task<List<Position>> Search(string searchValue)
+    {
+        List<Position> positionCollection = await GetCollection()
+            .AsQueryable()
+            .Where(x => x.Name.ToUpper().Contains(searchValue.ToUpper()))
+            .ToListAsync();
+        return positionCollection;
+    }
 }

@@ -4,7 +4,7 @@
 }
 
 <div class="container">
-    <h1>Jiu Jitsu Flow Chart</h1>
+    <h1>Your Flow</h1>
     <div class="row">
         
         @foreach (var position in Model)
@@ -14,7 +14,7 @@
                     <img class="card-img-top" src="@position.ImageUrl" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@position.Name</h5>
-                        <button type="button" class="btn btn-danger"><a asp-area="" asp-controller="Home" asp-action="UpdateVisible" asp-route-id="@position.Id">Remove</a></button>
+                        <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="UpdateVisible" asp-route-id="@position.Id">Remove</a>
                     </div>
                 </div>
             </div>
