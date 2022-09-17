@@ -2,4 +2,3 @@
     const src = $(this).attr("data-src");
     window.location.href = src;
 });
-
