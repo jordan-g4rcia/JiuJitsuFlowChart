@@ -3,10 +3,10 @@ using System.Net.Mime;
 using System.Runtime.Intrinsics.X86;
 using Microsoft.AspNetCore.Mvc;
 using JJFC.Web.Models;
-using JJFC.Web.Models.Database;
 using JJFC.Web.Repositories;
+using JJFC.Old.Models.Database;
 
-namespace JJFC.Web.Controllers;
+namespace JJFC.Old.Controllers;
 
 public class HomeController : Controller
 {
@@ -34,21 +34,21 @@ public class HomeController : Controller
         }
         return View(position);
     }
-    
+
     [HttpGet("Add")]
     public async Task<IActionResult> AddPosition()
     {
         return View(new Position());
     }
-    
+
     //Search positions
     public IActionResult Search(string query)
     {
         return string.IsNullOrWhiteSpace(query)
             ? RedirectToAction("Index")
-            : RedirectToAction("SearchResults", new { query = query });
+            : RedirectToAction("SearchResults", new { query });
     }
-    
+
     [HttpGet("Search")]
     public async Task<IActionResult> SearchResults([FromQuery] string query)
     {
@@ -68,21 +68,21 @@ public class HomeController : Controller
         await _positionRepository.Update(id, position);
         return RedirectToAction("Index");
     }
-    
+
     [HttpGet("delete/{id}")]
     public async Task<IActionResult> Delete(string id)
     {
         await _positionRepository.Delete(id);
         return RedirectToAction("Index");
     }
-    
+
     [HttpPost("Add")]
     public async Task<IActionResult> AddPositionPost(Position position)
     {
         await _positionRepository.Create(position);
         return RedirectToAction("Index");
     }
-    
+
     public IActionResult Privacy()
     {
         return View();
@@ -91,6 +91,6 @@ public class HomeController : Controller
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
-        return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
