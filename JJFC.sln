@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JJFC.Web", "JJFC.Web\JJFC.Web.csproj", "{3A8BDE5B-DAA0-48C3-846D-1AD95747E8A0}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JJFC.Old", "JJFC.Old\JJFC.Old.csproj", "{3A8BDE5B-DAA0-48C3-846D-1AD95747E8A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JJFC.Web", "JJFC.Web\JJFC.Web.csproj", "{C3E73C3A-3859-49D8-8A3D-E9E57F5CE7E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{3A8BDE5B-DAA0-48C3-846D-1AD95747E8A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A8BDE5B-DAA0-48C3-846D-1AD95747E8A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A8BDE5B-DAA0-48C3-846D-1AD95747E8A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3E73C3A-3859-49D8-8A3D-E9E57F5CE7E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3E73C3A-3859-49D8-8A3D-E9E57F5CE7E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3E73C3A-3859-49D8-8A3D-E9E57F5CE7E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3E73C3A-3859-49D8-8A3D-E9E57F5CE7E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E191BCB4-8BCD-4F2D-8857-3239CA3DABD9}
 	EndGlobalSection
 EndGlobal

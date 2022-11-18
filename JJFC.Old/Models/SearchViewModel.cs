@@ -1,6 +1,6 @@
 ﻿using JJFC.Old.Models.Database;
 
-namespace JJFC.Web.Models;
+namespace JJFC.Old.Models;
 
 public class SearchViewModel
 {

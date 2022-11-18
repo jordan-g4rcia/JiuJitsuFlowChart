@@ -1,18 +1,18 @@
-{
+﻿{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:41213",
-      "sslPort": 44361
+      "applicationUrl": "http://localhost:62159",
+      "sslPort": 44393
     }
   },
   "profiles": {
-    "JJFC.Web": {
+    "JJFC.Old": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7186;http://localhost:5186",
+      "applicationUrl": "https://localhost:7284;http://localhost:5284",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

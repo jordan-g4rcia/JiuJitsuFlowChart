@@ -1,4 +1,4 @@
-namespace JJFC.Web.Models;
+namespace JJFC.Old.Models;
 
 public class ErrorViewModel
 {
