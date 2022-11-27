@@ -2,8 +2,8 @@
 using System.Net.Mime;
 using System.Runtime.Intrinsics.X86;
 using Microsoft.AspNetCore.Mvc;
-using JJFC.Old.Models;
-using JJFC.Old.Repositories;
+using JJFC.Web.Models;
+using JJFC.Web.Repositories;
 using JJFC.Old.Models.Database;
 
 namespace JJFC.Old.Controllers;

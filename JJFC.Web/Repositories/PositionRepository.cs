@@ -1,9 +1,9 @@
 ﻿using JJFC.Old.Models.Database;
-using JJFC.Old.Models;
+using JJFC.Web.Models;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 
-namespace JJFC.Old.Repositories;
+namespace JJFC.Web.Repositories;
 
 public class PositionRepository
 {
