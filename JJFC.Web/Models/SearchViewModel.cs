@@ -1,4 +1,4 @@
-﻿using JJFC.Old.Models.Database;
+﻿using JJFC.Web.Models.Database;
 
 namespace JJFC.Web.Models;
 

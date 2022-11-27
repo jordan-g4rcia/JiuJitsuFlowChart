@@ -1,5 +1,5 @@
-﻿using JJFC.Old.Models.Database;
-using JJFC.Web.Models;
+﻿using JJFC.Web.Models;
+using JJFC.Web.Models.Database;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 
