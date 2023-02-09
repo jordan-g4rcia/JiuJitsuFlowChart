@@ -1,4 +1,6 @@
-﻿$(".position-card").dblclick(function(e) {
+﻿$(document).ready(function () {
+    $(".position-card").dblclick(function () {
     const src = $(this).attr("data-src");
     window.location.href = src;
+    });
 });
