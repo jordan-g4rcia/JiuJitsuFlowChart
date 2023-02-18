@@ -5,11 +5,11 @@
 
 <div class="container">
     <h1>Your Flow</h1>
-    <ul id="sortable" class="row">
+    <div id="sortable" class="row">
         
         @foreach (var position in Model)
         {
-            <li class="col-4 ui-state-default">
+            <div class="col-4 ui-state-default">
                 <div id="position-card" class="card position-card" data-src="@position.Id">
                     <img class="card-img-top" src="@position.ImageUrl" alt="Card image cap">
                     <div class="card-body">
@@ -17,8 +17,8 @@
                         <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="UpdateVisible" asp-route-id="@position.Id">Remove</a>
                     </div>
                 </div>
-            </li>
+            </div>
         }
 
-    </ul>
+    </div>
 </div>
